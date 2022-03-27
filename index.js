@@ -6,12 +6,12 @@ const { routes } = require("./router")
 
 const app     = express()
 const server  = http.createServer(app)
-const port    = 5000
+const port    = process.env.PORT || 2000
 
 app.use(cors())
 app.use(express.json())
 app.use(routes())
 
 server.listen(port,() => {
-  console.log(`Server: http://localhost:${port}/`)
+  console.info(`Server: http://localhost:${port}/`)
 })
