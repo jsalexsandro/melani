@@ -1,65 +1,55 @@
 import { Fragment,useState } from "react"
 import "../styles/login.scss"
 
-function Register(){
-  return <></>
-}
-
 function Login(){
-  const [typeInput,setTypeInput] = useState("password")
-  const [icon,setIcon] = useState("fas fa-eye-slash")
+  const [type,setType] = useState<boolean>(!false)
+  const [typeInput,setTypeInput] = useState<string>("password")
+  const [icon,setIcon] = useState<string >("far fa-eye-slash")
+
+  function getNameType(otype=type){
+    return otype == false ? "Fazer Login" : "Fazer Cadastro"
+  }
 
   function setVisiblePasswordFunc(){
     if (typeInput == "password"){
-      setIcon("fas fa-eye")
+      setIcon("far fa-eye")
       setTypeInput("text")
     } else {
-      setIcon("fas fa-eye-slash")
+      setIcon("far fa-eye-slash")
       setTypeInput("password")
     }
   }
 
-  // PROFONT AWESOME v5.10 USADA
-  // NÃO PODE SER OUTRA VERSÂO 
-  // ACHA UMA SOLUÇÃO MELHOR
+  // FONT AWESOME v6.0 USADA VIA CDN
   return (
     <Fragment>  
-      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+      <section className="local-register">
+      </section>
       <div className="login-container">
         <section className="login-name">
           <h1>
-            Faça Login
+            {getNameType()}
           </h1>
         </section>
         <section className="login-components">
-          <input type="email" placeholder="Email" className="login-input" />
+          <input type="text" placeholder="Usúario" className="login-input login-input-user" />
           <div className="login-input-component">
-            <input type={typeInput} placeholder="Senha" className="login-input login-input-password"/>
+            <input type={typeInput} autoComplete="current_password" placeholder="Senha" className="login-input login-input-password"/>
             <section onClick={setVisiblePasswordFunc} className="login-icon-div">
               <i className={icon}></i>
             </section>
           </div>
           <button className="login-button">
-            Login
+            {getNameType()}
+          </button>
+          <button onClick={() => setType(!type)} id="to-register" className="to-register-button">
+            {getNameType(!type)}
           </button>
         </section>
-      </div>
+      </div>  
     </Fragment>
   )
 }
 
-const LoginRegister = () => {
-  const [type,setType] = useState<number>(0)
-
-  function Render(){
-    if (type == 0){
-      return <Login />
-    } else { 
-      return <Register />
-    }
-  }
-
-  return <Render />
-}
-
-export default LoginRegister
+export default Login
