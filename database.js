@@ -4,7 +4,4 @@ class DatabaseModel {
   constructor(){
 
   }
-
-  
-
 }
