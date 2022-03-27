@@ -1,15 +1,21 @@
 {
+  "name": "TicToe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jsalexsandro/mirrian.git",
+  "author": "José Alexsandro <https://github.com/jsalexsandro>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "build": "node index.js",
+    "dev": "node index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "fs": "^0.0.1-security",
     "sqlite3": "^5.0.2"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "build": "node index.js",
-    "dev": "node index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.13"
