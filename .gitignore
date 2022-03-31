@@ -1,4 +1,9 @@
 client/node_modules/*
 client/.env
+
+# BACKEND FILES EXCLUDES
+
 server/node_modules/*
 server/.env
+server/ex.sql
+server/database/db.db
