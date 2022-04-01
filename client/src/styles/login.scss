@@ -73,6 +73,7 @@ body {
       display: flex;
       align-items: center;
       .login-icon-div {
+        cursor:pointer;
         color: $fg-color-1;
         width: 15%;
         display: flex;
@@ -90,6 +91,7 @@ body {
     }
 
     .login-button {
+      cursor: pointer;
       background-color: $fg-color-1;
       transition: 0.2s;
       margin-top: 6px;
@@ -98,10 +100,11 @@ body {
       font-weight: bold;
       text-transform: uppercase;
       &:hover {
-        background-color: darken($fg-color-1,6);
+        background-color: darken($fg-color-1,12);
       }
     }
     .to-register-button {
+      cursor: pointer;
       margin-top: 8px;
       background-color: transparent;
       border:3px solid $fg-color-1;
@@ -121,13 +124,31 @@ body {
 }
 
 .local-register {
-  $calc:20%;
+  $calc:102px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   position: fixed;
   top: calc(100% - $calc);
   background-color: $bg-color-2;
   width: 100%;
-  height: $calc;
+  height: auto;
   border-radius: 20px 20px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  .button-register {
+    background-color: $fg-color-1;
+    text-transform: uppercase;
+    color: $bg-color-1;
+    border: 0;
+    width: 40%;
+    height: 60px;
+    margin-right:20px;
+    border-radius: 8px;
+    font-size: max(6vw,12px);
+    text-overflow: ellipsis;
+    font-weight: bolder;
+  }
 }
 
 @media screen and (min-width:400px) {

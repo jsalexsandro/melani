@@ -1,15 +1,11 @@
 import { Fragment,useState } from "react"
 import "../styles/login.scss"
 
-function Login(){
+const Login = () => {
   const [type,setType] = useState<boolean>(!false)
   const [typeInput,setTypeInput] = useState<string>("password")
   const [icon,setIcon] = useState<string >("far fa-eye-slash")
-
-  function getNameType(otype=type){
-    return otype == false ? "Fazer Login" : "Fazer Cadastro"
-  }
-
+  
   function setVisiblePasswordFunc(){
     if (typeInput == "password"){
       setIcon("far fa-eye")
@@ -25,11 +21,14 @@ function Login(){
     <Fragment>  
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
       <section className="local-register">
+        <button onClick={() => location.assign("/register")} className="button-register">
+          <p>Cria Conta</p>
+        </button>
       </section>
       <div className="login-container">
         <section className="login-name">
           <h1>
-            {getNameType()}
+            FAZER LOGIN
           </h1>
         </section>
         <section className="login-components">
@@ -41,10 +40,10 @@ function Login(){
             </section>
           </div>
           <button className="login-button">
-            {getNameType()}
+            FAZER LOGIN
           </button>
-          <button onClick={() => setType(!type)} id="to-register" className="to-register-button">
-            {getNameType(!type)}
+          <button onClick={() => location.assign("/register")} id="to-register" className="to-register-button">
+            CRIAR UMA CONTA
           </button>
         </section>
       </div>  

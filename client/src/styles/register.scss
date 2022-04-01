@@ -1,0 +1,114 @@
+// BACKGROUNDS
+$bg-color-1:#161923;
+$bg-color-2:#282d3f;
+$bg-color-3:#191c2e;
+
+// COLORS
+$fg-color-1:#bcbdd0;
+
+
+.register-container{
+  position: absolute;
+  top:30%;
+  left:50%;
+  transform: translate(-50%, -30%);
+  background-color: $bg-color-2;
+  border-radius: 8px;
+  width: 500px;
+  height: 330px;
+  transition: 0.1s;
+  .register-name {
+    background-color: $bg-color-3;
+    height:80px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: $fg-color-1;
+    border-radius:8px 8px 0 0;
+
+    .icon-close {
+      cursor: pointer;
+      font-size: 30px;
+      background-color: $bg-color-3;
+      border-radius: 10px 10px 0 0 ;
+      padding: 10px 20px 0 20px;
+      position: absolute;
+      top: -40px;
+      transform: translateX(-50%);
+      left: 50%;
+      &:hover {
+        color: darken($fg-color-1,22);
+      }
+    }
+  }
+
+  .register-components {
+    padding-top:20px;
+    padding-bottom: 20px;
+    background-color: $bg-color-2;
+    border-radius: 0 0 8px 8px;
+
+    .register-input ,
+    .register-register-button {
+      background-color: $bg-color-3;
+      border-radius: 4px;
+      display: block;
+      margin: 6px auto 6px auto;
+      width:calc(100% - 30px);
+      height: 55px;
+      padding: 0;
+      border: 0;
+      outline: none;
+    }
+
+    .register-input {
+      font-size: 18px;
+      text-indent: 10px;
+      color: $fg-color-1;
+    }
+
+    .register-text {
+      margin-left: 15px;
+      font-size: 16px;
+      color: $fg-color-1;
+      text-transform: uppercase;
+    }
+
+    .register-register-button {
+      cursor: pointer;
+      background-color: $fg-color-1;
+      height: 60px;
+      margin-top: 20px;
+      color: $bg-color-1;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 22px;
+      &:hover {
+        background-color: darken($fg-color-1,12);
+      }
+    }
+
+  }
+
+}
+
+@media screen and (max-width:600px){
+  .register-container {
+    top: 30%;
+    transform: translate(-50%,-30%) scale(0.8);
+  }
+}
+
+@media screen and (max-width:425px){
+  .register-container {
+    top: 30%;
+    transform: translate(-50%,-30%) scale(1);
+    width: calc(100% - 30px);
+    height: 330px;
+    .register-name {
+      font-size: 18px;
+    }
+  }
+}
