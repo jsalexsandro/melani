@@ -1,0 +1,65 @@
+$bg-color-1:#161923;
+$bg-color-2:#282d3f;
+$bg-color-3:#191c2e;
+
+$fg-color-1:#bcbdd0;
+
+.modal {
+  border-radius: 4px;
+  top:80%;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%,-80%);
+  position: fixed;
+  background-color: darken($bg-color-3,6);
+  padding: 12px;
+  min-width: 140px;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  color: $fg-color-1;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  animation: ModalAnimation backwards 3s;
+}
+
+.modal-1 {
+  display: none;
+}
+
+@keyframes ModalAnimation {
+  0% {
+    top:120%;
+    opacity: 0;
+  }
+
+  10% {
+    top:80%;
+    opacity: 1;
+  }
+
+  90% {
+    top:80%;
+    opacity: 1;
+  }
+
+  100% {
+    top:120%;
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width:900px) {
+  .modal-1{
+    display: flex;
+  }
+
+  .modal-2 {
+    display: none;
+  }
+
+}

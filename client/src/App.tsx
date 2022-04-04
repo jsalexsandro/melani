@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter,Routes,Route } from "react-router-dom"
+
 import Index from "./pages"
 import Login from "./pages/login"
 import Register from "./pages/register"
 import SplashScreen from "./pages/splashScreen"
+import "./styles/global.scss"
 
 const App = () => {
   const [loading,setLoading] = useState<boolean>(false)

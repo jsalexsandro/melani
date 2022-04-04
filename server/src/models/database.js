@@ -7,10 +7,12 @@ console.log(URI_DATABASE)
 
 const SQL_QUERY_CREATE_TABLE = `
 CREATE TABLE PEOPLE (
-  user text NOT NULL,
+  name text NOT NULL,
   password text NOT NULL,
   id text NOT NULL,
-  PRIMARY KEY (user)
+  coins text NOT NULL,
+  victory text NOR NULL,
+  PRIMARY KEY (name)
 );
 `
 

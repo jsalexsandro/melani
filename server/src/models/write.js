@@ -6,7 +6,7 @@ function Write(id,password,insert,database,res){
     const userID = crypto.randomBytes(16).toString("hex") // GENERATE USER
     if (userName && usePassword){
       database.all(
-        `INSERT INTO PEOPLE VALUES ('${userName}','${usePassword}','${userID}')`,
+        `INSERT INTO PEOPLE VALUES ('${userName}','${usePassword}','${userID}','0','0')`,
         function(err){
           if (err) {
             res.send({

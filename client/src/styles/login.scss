@@ -6,11 +6,6 @@ $bg-color-3:#191c2e;
 // COLORS
 $fg-color-1:#bcbdd0;
 
-body {
-  background-color: $bg-color-1;
-}
-
-
 // CONTAINER LOGIN
 .login-container {
   position: absolute;
@@ -22,6 +17,7 @@ body {
   background-color: $bg-color-2;
   border-radius:8px;
   transition: 0.1s;
+  overflow: hidden;
 
   // NAME // FAÇA LOGIN
   .login-name {
@@ -161,7 +157,7 @@ body {
   .login-container {
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) scale(1.3);
+    transform: translate(-50%,-50%) scale(1.2);
     // width: 80%;
     // height:80%
   }
