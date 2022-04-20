@@ -1,5 +1,6 @@
-import { Fragment,useState } from "react"
+import { Fragment,useRef,useState } from "react"
 import Modal from "../components/modal/modal"
+import { setLocalStorage } from "../model/ConnectLocalStoarge"
 import Database from "../model/Database"
 import "../styles/login.scss"
 
@@ -30,9 +31,11 @@ const Login = () => {
         let values = object.values
         let searchedUser = false
         let searchedPass = false
+        let __user__ = {}
         for (let u of values){
           if (u.name == user){
             searchedUser = true
+            __user__ = u
             if (u.password == pass){
               searchedPass = true
             }
@@ -45,7 +48,8 @@ const Login = () => {
         } else if (searchedUser == true && searchedPass == false){
           updateModal("Senha incoreta")
         } else if (searchedUser == true && searchedPass == true){
-          updateModal("Usuario logado com sucesso")
+          const { name,id }:any = __user__
+          setLocalStorage(name,id)
         }
       })
     } else {

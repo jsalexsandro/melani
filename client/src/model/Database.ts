@@ -13,6 +13,16 @@ class Database {
       calback(a.data)
     })
   }
+
+  public write(user:String,password:String,calback:any){
+    let uri = `${this.url}/write/${import.meta.env.VITE_PASSWORD}/value/{"name":"${user}","password":"${password}"}`
+    axios.get(uri)
+    .then((a) => {
+      calback(a.data)
+    })
+
+  }
+
 }
 
 export default Database

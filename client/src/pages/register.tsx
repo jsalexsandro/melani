@@ -1,6 +1,8 @@
 import { Fragment,useState } from "react"
 import Modal from "../components/modal/modal"
 import MouseModal from "../components/mouse-modal/mouseModal"
+import { setLocalStorage } from "../model/ConnectLocalStoarge"
+import Database from "../model/Database"
 import "../styles/register.scss"
 
 const Register = () => {
@@ -25,7 +27,24 @@ const Register = () => {
   function eventRegister(){
     if (user != "" && pass != ""){
       if (user.search(" ") == -1){
-        console.log("ISSO AI MEU TRUTA")
+        if (user.length < 8){
+          updateModal("O Campo de Usuario Precisa ter pelos menos 8 caracteres")
+        } else if (pass.length < 8){
+          updateModal("O Campo de Senha Precisa ter pelos menos 8 caracteres")
+        } else {
+          // console.log("ISSO AI MEU TRUTA")
+          new Database().write(user,pass,(resp:any) => {
+            if (resp.insert == true){
+              setLocalStorage(user,resp.id)
+            } else {
+              if (resp.error == "USER EXIST"){
+                updateModal("Usúario já existe")
+              } else {
+                updateModal("Não foi possivel criar a conta. Tente Novamente")
+              }
+            }
+          })
+        }
       } else {
         updateModal("O Campo de Usuario Não Pode ter espaços")
       }
@@ -47,7 +66,7 @@ const Register = () => {
           <div className="register-user-div">
             <input onChange={(e) => setUser(e.target.value)} className="register-input register-user-input" />
             <div className="register-div-icon">
-              <i onMouseOut={() => setMouse(true)}  onMouseEnter={() => setMouse(false)} className="fa-solid fa-circle-info register-info-icon"></i>
+              <i onMouseOut={() => setMouse(false)}  onMouseEnter={() => setMouse(true)} className="fa-solid fa-circle-info register-info-icon"></i>
             </div>
           </div>
           <p className="register-text">Senha: </p>
@@ -56,10 +75,10 @@ const Register = () => {
             Cria Conta
           </button>
         </div>
-        <MouseModal className={`mouse-modal-1`} monitoring={!mouse}>
+        <MouseModal className={`mouse-modal-1`} monitoring={mouse}>
           <p>
             Lembre do Seu Nome de Usúario
-            Pois será com ee que você ira fazer login
+            Pois será com ele que você ira fazer login
           </p>
         </MouseModal>
       </div>

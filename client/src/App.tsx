@@ -10,7 +10,15 @@ import "./styles/global.scss"
 const App = () => {
   const [loading,setLoading] = useState<boolean>(false)
   useEffect(() => setLoading(true),[])
-  const login = localStorage.getItem("loginExist")
+
+  const id   = localStorage.getItem("id")
+  const user = localStorage.getItem("user")
+  let login  = "";
+
+  if (id != undefined && user != undefined){
+    login = "exist"
+  }
+
 
   function ListenSplashScreen(props:any){
     if (loading == true){
@@ -24,6 +32,7 @@ const App = () => {
       return (
         <Routes>
           <Route path="*" element={<ListenSplashScreen component={<Index/>} />} />
+          <Route path="/app" element={<Index/>} />
         </Routes>
       )
     } else {

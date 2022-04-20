@@ -5,13 +5,14 @@ $bg-color-3:#191c2e;
 $fg-color-1:#bcbdd0;
 
 .modal {
-  border-radius: 4px;
+  border-radius: 8px;
   top:80%;
   opacity: 0;
   left: 50%;
   transform: translate(-50%,-80%);
   position: fixed;
   background-color: darken($bg-color-3,6);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   padding: 12px;
   min-width: 140px;
   width: auto;
@@ -33,22 +34,22 @@ $fg-color-1:#bcbdd0;
 
 @keyframes ModalAnimation {
   0% {
-    top:120%;
+    transform: translate(-50%,-80%) scale(0);
     opacity: 0;
   }
 
   10% {
-    top:80%;
+    transform: translate(-50%,-80%) scale(1);
     opacity: 1;
   }
 
   90% {
-    top:80%;
+    transform: translate(-50%,-80%) scale(1);
     opacity: 1;
   }
 
   100% {
-    top:120%;
+    transform: translate(-50%,-80%) scale(0);
     opacity: 0;
   }
 }
